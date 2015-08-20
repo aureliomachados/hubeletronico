@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tcle-anestesia-final" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e8c1da6a-aa3a-4ae2-935b-eb535999da6c">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select paciente, prontuario, data_nascimento, rg, orgao, sigla, diagnostico, procedimento, anestesia, responsavel, parentesco_responsavel, rg_responsavel, cpf_responsavel, name as medico from tcles inner join estados on tcles.estados_id = estados.id inner join users on tcles.user_id = users.id;]]>
+	</queryString>
+	<field name="paciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prontuario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_nascimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rg" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orgao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="diagnostico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="procedimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anestesia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="responsavel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="parentesco_responsavel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rg_responsavel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf_responsavel" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medico" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112">
+			<textField>
+				<reportElement x="68" y="63" width="388" height="20" uuid="5a2dce9b-912f-4b83-938e-3c43c52c7de9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[TERMO DE CONSENTIMENTO LIVRE E ESCLARECIMENTO]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="92" width="127" height="20" uuid="f8ab22b4-0d44-4169-bc32-db7d3fbb4299"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[Anestesia e sedação]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="604" splitType="Stretch">
+			<rectangle>
+				<reportElement x="11" y="12" width="524" height="56" uuid="5dfad5ea-6994-4473-bd64-e94da67db342"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="20" y="18" width="48" height="20" uuid="62caada6-53da-4750-9967-faad5b8b021d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paciente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="18" width="264" height="20" uuid="8fbe05c7-2999-4f4a-ac69-0bb12f2a09ad"/>
+				<textFieldExpression><![CDATA[$F{paciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="18" width="48" height="20" uuid="58c4496e-41dc-47ec-b89c-e4bcde2f5daa"/>
+				<text><![CDATA[Prontuario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="18" width="114" height="20" uuid="6765af26-3f62-4c54-bb1c-5d46234f640c"/>
+				<textFieldExpression><![CDATA[$F{prontuario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="52" width="100" height="20" uuid="28323980-438c-4e2e-a025-d1ea6a74594b"/>
+				<text><![CDATA[data_nascimento]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
