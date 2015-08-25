@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d731314d1f387304b7d383ad20a12e7e",
+    "hash": "1a0bfbf374aacd3467e603becbdf71a0",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1046,6 +1046,43 @@
                 "php"
             ],
             "time": "2015-07-14 17:31:05"
+        },
+        {
+            "name": "owen-it/laravel-auditing",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owen-it/laravel-auditing.git",
+                "reference": "4fdef9510a36dc88e2130928845d97a486a6b2b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owen-it/laravel-auditing/zipball/4fdef9510a36dc88e2130928845d97a486a6b2b4",
+                "reference": "4fdef9510a36dc88e2130928845d97a486a6b2b4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~5.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations"
+                ],
+                "psr-4": {
+                    "OwenIt\\Auditing\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Antério",
+                    "email": "anteriovieira@gmail.com"
+                }
+            ],
+            "description": "Keep a change history for your models using laravel version 5.1.",
+            "time": "2015-08-21 04:04:53"
         },
         {
             "name": "phenx/php-font-lib",

@@ -148,6 +148,7 @@ return [
         'Laracasts\Flash\FlashServiceProvider',
         'JasperPHP\JasperPHPServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+        'OwenIt\Auditing\AuditingServiceProvider',
 
 	],
 

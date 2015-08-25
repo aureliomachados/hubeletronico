@@ -28,7 +28,11 @@ Route::put('medicos/{id}', ['as' => 'medicos.update', 'uses' => 'MedicoControlle
 Route::delete('medicos/{id}', ['as' => 'medicos.destroy', 'uses' => 'MedicoController@destroy']);
 Route::get('medicos/pdf', ['as' => 'medicos.pdf', 'uses' => 'MedicoController@pdf']);
 
+
+//buscas
 Route::get('medicos/busca/', ['as' => 'medicos.busca', 'uses' => 'MedicoController@busca']);
+Route::get('pacientes/busca/', ['as' => 'pacientes.busca', 'uses' => 'PacienteController@busca']);
+Route::get('pacientes/busca-ajax', ['as' => 'pacientes.buscaAjax', 'uses' => 'PacienteController@buscaAjax']);
 
 
 //tcles
@@ -39,6 +43,9 @@ Route::get('estados', function(){
     return \App\Estado::all(['id', 'nome', 'sigla']);
 });
 
+//resources controllers
+
+Route::resource('pacientes', 'PacienteController');
 Route::resource('tcles', 'TCLEController');
 
 
@@ -46,3 +53,8 @@ Route::resource('tcles', 'TCLEController');
 //jasper reports
 Route::get('/reporting', ['uses' =>'ReportController@index', 'as' => 'Report']);
 Route::post('/reporting', ['uses' =>'ReportController@post']);
+
+
+
+//angular test
+Route::get('lista-pacientes', 'HomeController@listaPacientes');
