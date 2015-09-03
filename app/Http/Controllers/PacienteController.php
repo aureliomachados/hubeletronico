@@ -179,6 +179,9 @@ class PacienteController extends Controller {
         return view('pacientes.index')->with('pacientes', $paciente)->with('paginado', false);
     }
 
+    /*
+     * Método para retonar uma busca baseada em requisição ajax.
+     */
     public function buscaAjax(Request $request){
 
         $prontuario = null;

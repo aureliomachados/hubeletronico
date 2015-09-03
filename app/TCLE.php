@@ -8,13 +8,17 @@ class TCLE extends Model {
 
     protected $dates = ['data_nascimento'];
 
-    protected $fillable = ['paciente', 'prontuario', 'data_nascimento',
-        'rg', 'orgao', 'uf', 'diagnostico', 'procedimento', 'anestesia',
-    'responsavel', 'parentesco_responsavel', 'rg_responsavel', 'cpf_responsavel', 'user_id', 'estados_id'];
+    protected $fillable = ['diagnostico', 'procedimento', 'anestesia',
+    'responsavel', 'parentesco_responsavel', 'rg_responsavel', 'cpf_responsavel', 'user_id', 'estados_id', 'paciente_id'];
 
     public function estado(){
 
         return $this->hasOne('App\Estado', 'id', 'estados_id');
+    }
+
+    public function paciente()
+    {
+        return $this->hasOne('App\Paciente', 'id', 'paciente_id'); 
     }
 
 }

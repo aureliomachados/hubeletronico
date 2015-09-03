@@ -5,10 +5,39 @@
 @endsection
 
 @section('content')
+
+    <script>
+        var app = angular.module('myApp', []).config(function($interpolateProvider){
+            $interpolateProvider.startSymbol('<%').endSymbol('%>');
+        });
+
+        app.controller('pacienteController', function($scope, $http){
+
+            $scope.paciente = null;
+            $scope.prontuario = null;
+            $scope.mensagem = null;
+
+            $scope.carregaPaciente = function() {
+                $http.get("pacientes/busca-ajax?prontuario=" + $scope.prontuario).success(function ($response) {
+
+                    $scope.paciente = $response.paciente;
+
+                    if($response.paciente != null){
+                        $scope.mensagem = "Nenhum paciente encontrado";
+                    }
+
+                    console.log($scope.paciente);
+
+                });
+            }
+        });
+
+    </script>
+
     <div class="container">
 
         <div class="page-header">
-            <h4>Adicionar novo registro</h4>
+            <h4>Adicionar novo tcle de anestesia</h4>
         </div>
 
         <div class="row">
@@ -29,53 +58,7 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Paciente</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="paciente" value="{{ old('paciente') }}">
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Prontuário</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="prontuario" value="{{ old('prontuario') }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Data de nascimento</label>
-                        <div class="col-md-6">
-                            <input type="date" class="form-control" name="data_nascimento" value="{{old('data_nascimento')}}">
-                        </div>
-                    </div>
-
-                    <hr/>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">RG</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="rg">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Orgão</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="orgao">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">UF</label>
-                        <div class="col-md-6">
-                            <select name="estados_id" id="estados_id" class="form-control">
-                                @foreach($estados as $estado)
-                                    <option value="{{$estado->id}}">{{$estado->sigla}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
 
                     <hr/>
 

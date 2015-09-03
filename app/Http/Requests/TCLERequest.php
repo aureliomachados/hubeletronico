@@ -25,12 +25,6 @@ class TCLERequest extends Request {
 	public function rules()
 	{
 		return [
-            'paciente' => 'required|min:3',
-            'prontuario' => 'required',
-            'data_nascimento' => 'required',
-            'rg',
-            'orgao',
-            'uf',
             'diagnostico',
             'procedimento',
             'anestesia',
